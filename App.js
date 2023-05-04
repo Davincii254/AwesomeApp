@@ -5,7 +5,6 @@ import * as ImagePicker from 'expo-image-picker';
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import domtoimage from 'dom-to-image';
 
-
 import Button from './components/Buttons';
 import ImageViewer from './components/ImageViewer';
 import CircleButton from './components/CircleButton';
@@ -13,6 +12,7 @@ import IconButton from './components/IconButton';
 import EmojiPicker from './components/EmojiPicker';
 import EmojiList from './components/EmojiList';
 import EmojiSticker from './components/EmojiSticker';
+import Second from './components/SecondPage';
 
 
 
@@ -120,10 +120,19 @@ export default function App() {
           />
         </View>
       )}
+
+      <TouchableOpacity style={styles.buttoncontainer}>
+      <View style={styles.rect3}></View>
+      <TouchableOpacity style={styles.button2}></TouchableOpacity>
+      <View style={styles.rect5}></View>
+      <link href='./components/SecondPage'></link>
+      <Text style={styles.goHome}>Go Second</Text>
+    </TouchableOpacity>
+
       <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
         <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
       </EmojiPicker>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </GestureHandlerRootView>
   );
 }
@@ -150,5 +159,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
+  },
+  buttoncontainer: {
+    backgroundColor: "rgba(240,12,12,0.99)",
+    borderWidth: 26,
+    borderColor: "rgba(212,44,44,1)",
+    borderStyle: "solid",
+    width: 135,
+    height: 52
+  },
+  rect3: {
+    flex: 0.02,
+    backgroundColor: "rgba(206, 206, 206,1)"
+  },
+  button2: {
+    flex: 1.07,
+    backgroundColor: "rgba(251, 251, 251,1)"
+  },
+  rect5: {
+    flex: 0,
+    backgroundColor: "rgba(214, 214, 214,1)"
   }
 });

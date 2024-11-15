@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import domtoimage from 'dom-to-image';
+
 
 import Button from './components/Buttons';
 import ImageViewer from './components/ImageViewer';
@@ -17,6 +18,9 @@ import Second from './components/SecondPage';
 
 
 const PlaceholderImage = require('./assets/images/biggie.jpg');
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const rem = windowWidth / 320;
 
 export default function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -144,16 +148,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   imageContainer: {
-    flex:1,
-    paddingTop: 58
+    flex: 1,
+    paddingTop: 58 * rem,
   },
   footerContainer: {
-    flex: 1 / 3,
+    flex: 1,
     alignItems: 'center',
   },
   optionsContainer: {
     position: 'absolute',
-    bottom: 80,
+    bottom: 80 * rem,
   },
   optionsRow: {
     alignItems: 'center',
@@ -162,22 +166,23 @@ const styles = StyleSheet.create({
   },
   buttoncontainer: {
     backgroundColor: "rgba(240,12,12,0.99)",
-    borderWidth: 26,
+    borderWidth: 0.3 * rem,
     borderColor: "rgba(212,44,44,1)",
     borderStyle: "solid",
-    width: 135,
-    height: 52
+    width: 135 * rem,
+    height: 52 * rem,
   },
   rect3: {
     flex: 0.02,
-    backgroundColor: "rgba(206, 206, 206,1)"
+    backgroundColor: "rgba(206, 206, 206,1)",
   },
   button2: {
     flex: 1.07,
-    backgroundColor: "rgba(251, 251, 251,1)"
+    backgroundColor: "rgba(251, 251, 251,1)",
   },
   rect5: {
     flex: 0,
-    backgroundColor: "rgba(214, 214, 214,1)"
-  }
+    backgroundColor: "rgba(214, 214, 214,1)",
+  },
 });
+
